@@ -21,13 +21,25 @@ import ca.uwo.utils.OrderItem;
 public class Facade implements FacadeCommands {
 	private Controller controller;
 	private BankingTransactions bank;
+	private static Facade instance = null;
+	
+	/**
+	 * there should be only one instance of Facade.
+	 * @return the instance of Facade class.
+	 */
+	public static Facade getInstance() {
+		if (instance == null)
+			instance = new Facade();
+		
+		return instance;
+	}
 	
 	/**
 	 * constructor for Facade class.
 	 */
-	public Facade() {
+	private Facade() {
 		super();
-		this.controller = new Controller();
+		this.controller = Controller.getInstance();
 		this.bank = new BankingTransactions();
 	}
 	
@@ -58,7 +70,7 @@ public class Facade implements FacadeCommands {
 		//The supplier restock the supplies according to restockDetails. The stock should be 
 		//replenished accordingly and the supplier need to get paid.
 		System.out.println("Facade: ");
-		Order currOrder = createOrder(restockDetails, supplier.toString());
+		Order currOrder = createOrder(restockDetails, "supplier");
 		System.out.println("\tReplenishing Stock");
 		controller.replenishStock(currOrder);
 		bank.paySupplier(supplier);

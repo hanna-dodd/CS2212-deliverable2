@@ -32,7 +32,7 @@ public class SupplierProxy extends Proxy {
 	}
 	
 	public void restock(Map<String, Integer> restockDetails, Supplier supplier) {
-		Facade facade = new Facade();
+		Facade facade = Facade.getInstance();
 		facade.restock(restockDetails, supplier);
 		
 	}

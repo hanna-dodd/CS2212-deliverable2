@@ -30,7 +30,7 @@ public class LowQuantityProxy {
 		}
 		
 		else {
-			Facade facade = new Facade();
+			Facade facade = Facade.getInstance();
 			facade.placeOrder(orderDetails, buyer);
 			
 		}

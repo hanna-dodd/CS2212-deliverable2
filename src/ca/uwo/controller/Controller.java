@@ -1,5 +1,6 @@
 package ca.uwo.controller;
 
+import ca.uwo.frontend.Facade;
 import ca.uwo.utils.Invoice;
 import ca.uwo.utils.Order;
 
@@ -12,8 +13,19 @@ public class Controller {
 	private CreateInvoiceOperation createInvoiceOp;
 	private DepleteStockOperation depleteStockOp;
 	private ReplenishStockOperation replenishStockOp;
-	
+	private static Controller instance = null;
 	Order currentOrder = null;
+	
+	/**
+	 * there should be only one instance of Facade.
+	 * @return the instance of Facade class.
+	 */
+	public static Controller getInstance() {
+		if (instance == null)
+			instance = new Controller();
+		
+		return instance;
+	}
 	
 	/**
 	 * deplete the stock after placing the order.
