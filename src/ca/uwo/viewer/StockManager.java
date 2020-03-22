@@ -31,10 +31,10 @@ public class StockManager extends Viewer implements Runnable {
 	 */
 	private StockManager() {
 		super();
-		//restockDetails.put("apple", 50);
-		//restockDetails.put("pear", 50);
-		//restockDetails.put("mango", 50);
-		//restockDetails.put("onions", 50);
+		restockDetails.put("apple", 50);
+		restockDetails.put("pear", 50);
+		restockDetails.put("mango", 50);
+		restockDetails.put("onions", 50);
 		Thread t = new Thread(this);
 		t.start();
 	}

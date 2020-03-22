@@ -98,16 +98,8 @@ public class Item {
 	public ItemResult deplete(int quantity) {
 		// Deplete the item with quantity and return the execution result of
 		// deplete action.
-		ItemResult itemResult;
-		int availableQuantity = this.getAvailableQuantity();
-		if (availableQuantity < quantity) {
-			itemResult = new ItemResult("OUT OF STOCK", ResponseCode.Not_Completed);
-		} else {
-			availableQuantity -= quantity;
-			itemResult = new ItemResult("AVAILABLE", ResponseCode.Completed);
-		}
-
-		this.setAvailableQuantity(availableQuantity);
+		ItemResult itemResult = state.deplete(this, quantity);
+		
 		return itemResult;
 	}
 
@@ -121,11 +113,10 @@ public class Item {
 	public ItemResult replenish(int quantity) {
 		// Replenish the item with quantity and return the execution result of
 		// replenish action.
-		int availableQuantity = this.getAvailableQuantity();
-		availableQuantity += quantity;
-		this.setAvailableQuantity(availableQuantity);
-		ItemResult itemResult = new ItemResult("RESTOCKED", ResponseCode.Completed);
+		ItemResult itemResult = state.replenish(this, quantity);
+		
 		return itemResult;
+		
 	}
 	
 	public void notifyViewers() {
@@ -135,6 +126,11 @@ public class Item {
 			temp.inform(this.getName());
 			
 		}
+		
+	}
+	
+	public void setState(ItemState state) {
+		this.state = state;
 		
 	}
 
