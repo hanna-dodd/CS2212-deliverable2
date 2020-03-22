@@ -74,6 +74,8 @@ public class WelcomeProxy extends Proxy {
 		System.out.println("Enter your password:");
 		String password = user_input.nextLine();
 		
+		user_input.close();
+		
 		if((username.equals(buyer.getUserName())) && (password.equals(buyer.getPassword()))) {
 			
 			System.out.println("Authenticated.");
