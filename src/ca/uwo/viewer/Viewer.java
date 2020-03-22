@@ -9,6 +9,6 @@ import ca.uwo.model.Item;
  */
 public abstract class Viewer {
 
-	public abstract void inform(Item item);
+	public abstract void inform(String name);
 
 }

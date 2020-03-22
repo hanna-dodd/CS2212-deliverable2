@@ -23,7 +23,7 @@ public class HighQuantityProxy {
 	}
 	
 	public void placeOrder(Map<String, Integer> orderDetails, Buyer buyer) {
-		Facade facade = new Facade();
+		Facade facade = Facade.getInstance();
 		facade.placeOrder(orderDetails, buyer);
 		
 	}

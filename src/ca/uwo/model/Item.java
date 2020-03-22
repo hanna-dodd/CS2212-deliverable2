@@ -127,5 +127,15 @@ public class Item {
 		ItemResult itemResult = new ItemResult("RESTOCKED", ResponseCode.Completed);
 		return itemResult;
 	}
+	
+	public void notifyViewers() {
+		
+		for(Viewer temp : viewers) {
+			
+			temp.inform(this.getName());
+			
+		}
+		
+	}
 
 }

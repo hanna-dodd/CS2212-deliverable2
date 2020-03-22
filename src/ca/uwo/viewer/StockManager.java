@@ -43,10 +43,9 @@ public class StockManager extends Viewer implements Runnable {
 	 * @see ca.uwo.viewer.Viewer#inform(ca.uwo.model.Item)
 	 */
 	@Override
-	public void inform(Item item) {
+	public void inform(String name) {
 		// Do appropriate action when informed of items being out of stock
-		System.out.println(item.toString());
-		restockDetails.put("apple", 50);
+		restockDetails.put(name, 50);
 	}
 
 	// TODO make concurrent
