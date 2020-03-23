@@ -5,7 +5,9 @@ import ca.uwo.utils.ItemResult;
 import ca.uwo.utils.ResponseCode;
 
 public class LowStockState implements ItemState {
+	
 	public ItemResult deplete(Item item, int quantity) {
+		
 		ItemResult itemResult;
 		int availableQuantity = item.getAvailableQuantity();
 		
@@ -24,6 +26,8 @@ public class LowStockState implements ItemState {
 			item.setState(new OutOfStockState());
 			
 		}
+		
+		item.notifyViewers();
 		
 		return itemResult;
 		
