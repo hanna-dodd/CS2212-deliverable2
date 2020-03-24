@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.uwo.model.item.states.ItemState;
+import ca.uwo.model.item.states.ItemStateFactory;
 import ca.uwo.utils.ItemResult;
 import ca.uwo.utils.ResponseCode;
 import ca.uwo.viewer.Messenger;
@@ -46,6 +47,8 @@ public class Item {
 		// Adding viewers thus implementing part of the Observer design pattern
 		this.viewers.add(StockManager.getInstance());
 		this.viewers.add(Messenger.getInstance());
+		
+		this.state = new ItemStateFactory().create(quantity);
 
 		// When you add states to items make sure you
 		// initialize them using the proper STATE!!!!

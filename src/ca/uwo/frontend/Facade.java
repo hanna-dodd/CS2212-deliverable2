@@ -57,6 +57,7 @@ public class Facade implements FacadeCommands {
 		controller.depleteStock(currOrder);
 		System.out.println("\tCreating Invoice");
 		Invoice currInvoice = controller.createInvoice();
+		currOrder.setInvoice(currInvoice);
 		bank.receivePayment(currInvoice, buyer);
 		
 	}
