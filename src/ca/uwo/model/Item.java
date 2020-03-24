@@ -47,7 +47,7 @@ public class Item {
 		// Adding viewers thus implementing part of the Observer design pattern
 		this.viewers.add(StockManager.getInstance());
 		this.viewers.add(Messenger.getInstance());
-		
+		// The ItemStateFactory creates the item's state based on it's quantity
 		this.state = new ItemStateFactory().create(quantity);
 
 		// When you add states to items make sure you
