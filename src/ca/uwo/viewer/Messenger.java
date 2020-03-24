@@ -20,8 +20,8 @@ public class Messenger extends Viewer {
 	 * @see ca.uwo.viewer.Viewer#inform(ca.uwo.model.Item)
 	 */
 	@Override
-	public void inform(String name) {
-		System.out.println("Notify department that item run out of stock: " + name);
+	public void inform(Item item) {
+		System.out.println("Notify department that item run out of stock: " + item.getName());
 	}
 
 }
