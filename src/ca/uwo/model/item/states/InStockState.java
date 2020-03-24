@@ -13,6 +13,7 @@ public class InStockState implements ItemState {
 		
 		if (availableQuantity < quantity) {
 			itemResult = new ItemResult("OUT OF STOCK", ResponseCode.Not_Completed);
+			item.notifyViewers();
 		} 
 		
 		else {
@@ -32,7 +33,6 @@ public class InStockState implements ItemState {
 			
 		}
 		
-		item.notifyViewers();
 		
 		return itemResult;
 		
