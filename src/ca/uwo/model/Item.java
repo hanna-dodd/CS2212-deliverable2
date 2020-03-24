@@ -122,16 +122,22 @@ public class Item {
 		
 	}
 	
+	/** 
+	 * notifyViewers()
+	 * 
+	 * Informs all viewers of the item that the item is now out of stock.
+	 */
 	public void notifyViewers() {
 		
 		for(Viewer temp : viewers) {
-			
-			temp.inform(this.getName());
+		
+			temp.inform(this);
 			
 		}
 		
 	}
 	
+	// sets the items states
 	public void setState(ItemState state) {
 		this.state = state;
 		

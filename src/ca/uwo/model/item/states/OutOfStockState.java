@@ -4,8 +4,11 @@ import ca.uwo.model.Item;
 import ca.uwo.utils.ItemResult;
 import ca.uwo.utils.ResponseCode;
 
+
+// item state for when quantity is 0
 public class OutOfStockState implements ItemState {
 	
+	// cannot deplete because quantity is 0 so out of stock notification
 	public ItemResult deplete(Item item, int quantity) {
 		
 		ItemResult itemResult = new ItemResult("OUT OF STOCK", ResponseCode.Not_Completed);
@@ -16,6 +19,7 @@ public class OutOfStockState implements ItemState {
 		
 	}
 	
+	// replenish adds to the stock and changes the state since the quantity will no longer be zero
 	public ItemResult replenish(Item item, int quantity) {
 		item.setAvailableQuantity(item.getAvailableQuantity() + quantity);
 		
