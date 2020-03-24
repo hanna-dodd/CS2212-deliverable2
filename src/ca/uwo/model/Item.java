@@ -132,6 +132,7 @@ public class Item {
 		
 	}
 	
+	// sets the items states
 	public void setState(ItemState state) {
 		this.state = state;
 		
