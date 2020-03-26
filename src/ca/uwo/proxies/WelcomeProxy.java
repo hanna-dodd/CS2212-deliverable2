@@ -21,7 +21,7 @@ public class WelcomeProxy extends Proxy {
 	/**
 	 * constructor for WelcomeProxy class.
 	 */
-	public WelcomeProxy() {
+	private WelcomeProxy() {
 		
 		
 	}

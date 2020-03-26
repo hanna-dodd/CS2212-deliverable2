@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.uwo.dataAccess.DataManager;
+import ca.uwo.proxies.SupplierProxy;
 import ca.uwo.utils.ItemResult;
 import ca.uwo.utils.OrderItem;
 
@@ -12,6 +13,15 @@ import ca.uwo.utils.OrderItem;
  * This class represents a collection of {@link ca.uwo.model.Item} in the database.
  */
 public class ItemRepository {
+	
+	private static ItemRepository instance = null;
+	
+	public static ItemRepository getInstance() {
+		if (instance == null)
+			instance = new ItemRepository();
+		
+		return instance;
+	}
 	
 	private Map<String, Item> savedItems;
 	private DataManager dataManager;
@@ -64,7 +74,7 @@ public class ItemRepository {
 	/**
 	 * constructor for ItemRepository class.
 	 */
-	public ItemRepository() {
+	private ItemRepository() {
 		super();
 		dataManager = DataManager.getInstance();
 		savedItems = new HashMap<>();

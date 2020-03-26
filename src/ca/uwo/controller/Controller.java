@@ -61,7 +61,7 @@ public class Controller {
 	/**
 	 * constructor for the Controller.
 	 */
-	public Controller() {
+	private Controller() {
 		depleteStockOp = new DepleteStockOperation();
 		replenishStockOp = new ReplenishStockOperation();
 		createInvoiceOp = new CreateInvoiceOperation();
