@@ -26,13 +26,14 @@ public class SupplierProxy extends Proxy {
 	}
 	
 	
-	
+	// passes on placeorder to lowquantityproxy
 	public void placeOrder(Map<String, Integer> orderDetails, Buyer buyer) {
 		LowQuantityProxy LowQuantity = LowQuantityProxy.getInstance();
 		LowQuantity.placeOrder(orderDetails, buyer);
 		
 	}
 	
+	// calls restock on facade
 	public void restock(Map<String, Integer> restockDetails, Supplier supplier) {
 		Facade facade = Facade.getInstance();
 		facade.restock(restockDetails, supplier);

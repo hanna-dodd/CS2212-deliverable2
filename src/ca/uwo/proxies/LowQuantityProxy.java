@@ -24,6 +24,7 @@ public class LowQuantityProxy {
 		
 	}
 	
+	// places order if size is <= 10 otherwise passes to highquanitityproxy
 	public void placeOrder(Map<String, Integer> orderDetails, Buyer buyer) {
 		if (orderDetails.size() > 10) {
 			HighQuantityProxy HighQuantity = HighQuantityProxy.getInstance();
