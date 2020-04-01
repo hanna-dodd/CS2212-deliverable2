@@ -8,10 +8,12 @@ import ca.uwo.frontend.Facade;
 public class LowQuantityProxy {
 	private static LowQuantityProxy instance = null;
 	
+	// constructor for lowquantityproxy private for singleton
 	private LowQuantityProxy() {
 		
 	}
 	
+	// returns the instance so there can only be one
 	public static LowQuantityProxy getInstance() {
 		if (instance == null) {
 			instance = new LowQuantityProxy();

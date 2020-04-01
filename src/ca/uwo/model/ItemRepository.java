@@ -16,6 +16,7 @@ public class ItemRepository {
 	
 	private static ItemRepository instance = null;
 	
+	// returns the instance so there can only be one instance
 	public static ItemRepository getInstance() {
 		if (instance == null)
 			instance = new ItemRepository();

@@ -9,10 +9,12 @@ import ca.uwo.frontend.Facade;
 public class SupplierProxy extends Proxy {
 	private static SupplierProxy instance = null;
 	
+	// private constructor for supplierproxy for singleton
 	private SupplierProxy() {
 		
 	}
 	
+	// returns the instance so there can only be one
 	public static SupplierProxy getInstance() {
 		if (instance == null) {
 			instance = new SupplierProxy();

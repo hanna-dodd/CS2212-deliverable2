@@ -26,6 +26,7 @@ public class WelcomeProxy extends Proxy {
 		
 	}
 
+	// returns the instance so there can only be one
 	public static WelcomeProxy getInstance() {
 		
 		if (instance == null) {
